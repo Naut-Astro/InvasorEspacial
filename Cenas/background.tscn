@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckpofjs52ps2h"]
+
+[ext_resource type="Texture2D" uid="uid://bk44kmsvs2uss" path="res://Assets/Sprites/SkyStars.png" id="1_nbkas"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_p3a1g"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Space" type="TextureRect" parent="."]
+self_modulate = Color(0.000431754, 0.000217328, 0.141646, 1)
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = SubResource("CanvasTexture_p3a1g")
+
+[node name="Stars" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_nbkas")
+stretch_mode = 1
