@@ -1,0 +1,189 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm6wphxe2cq13"]
+
+[ext_resource type="Script" uid="uid://080du8uqvljt" path="res://Scripts/invaderconfig.gd" id="1_5u2tg"]
+[ext_resource type="FontFile" uid="uid://c1kmxus5f1lpd" path="res://Assets/Fontes/Chakra_Petch/ChakraPetch-Bold.ttf" id="2_4xneg"]
+[ext_resource type="FontFile" uid="uid://b8shucnl2e6uq" path="res://Assets/Fontes/Chakra_Petch/ChakraPetch-Medium.ttf" id="3_tl5q0"]
+[ext_resource type="PackedScene" uid="uid://ckpofjs52ps2h" path="res://Cenas/background.tscn" id="4_3a6gk"]
+
+[sub_resource type="Theme" id="Theme_o6csk"]
+default_font = ExtResource("3_tl5q0")
+default_font_size = 19
+
+[node name="InvaderConfig" type="Node2D"]
+script = ExtResource("1_5u2tg")
+
+[node name="Menu" type="CanvasLayer" parent="."]
+
+[node name="Stars" type="PanelContainer" parent="Menu"]
+offset_left = 36.0
+offset_top = 45.0
+offset_right = 322.0
+offset_bottom = 207.0
+metadata/_edit_group_ = true
+
+[node name="Linhas" type="VBoxContainer" parent="Menu/Stars"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/Stars/Linhas"]
+modulate = Color(0.666569, 0.666569, 0.666569, 1)
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4xneg")
+theme_override_font_sizes/font_size = 37
+text = "ESTRELAS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Stars/Linhas"]
+layout_mode = 2
+
+[node name="R" type="SpinBox" parent="Menu/Stars/Linhas/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_o6csk")
+max_value = 255.0
+rounded = true
+alignment = 2
+update_on_text_changed = true
+suffix = "R"
+
+[node name="G" type="SpinBox" parent="Menu/Stars/Linhas/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_o6csk")
+max_value = 255.0
+rounded = true
+alignment = 2
+update_on_text_changed = true
+suffix = "G"
+
+[node name="B" type="SpinBox" parent="Menu/Stars/Linhas/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_o6csk")
+max_value = 255.0
+rounded = true
+alignment = 2
+update_on_text_changed = true
+suffix = "B"
+
+[node name="Label2" type="Label" parent="Menu/Stars/Linhas"]
+modulate = Color(0.666569, 0.666569, 0.666569, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_tl5q0")
+theme_override_font_sizes/font_size = 26
+text = "Opacidade"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="A" type="HSlider" parent="Menu/Stars/Linhas"]
+layout_mode = 2
+max_value = 255.0
+rounded = true
+
+[node name="Sky" type="PanelContainer" parent="Menu"]
+offset_left = 36.0
+offset_top = 232.0
+offset_right = 322.0
+offset_bottom = 332.0
+size_flags_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="Linhas" type="VBoxContainer" parent="Menu/Sky"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Menu/Sky/Linhas"]
+modulate = Color(0.666569, 0.666569, 0.666569, 1)
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4xneg")
+theme_override_font_sizes/font_size = 37
+text = "ESPAÇO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Sky/Linhas"]
+layout_mode = 2
+
+[node name="R" type="SpinBox" parent="Menu/Sky/Linhas/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_o6csk")
+max_value = 255.0
+rounded = true
+alignment = 2
+update_on_text_changed = true
+suffix = "R"
+
+[node name="G" type="SpinBox" parent="Menu/Sky/Linhas/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_o6csk")
+max_value = 255.0
+rounded = true
+alignment = 2
+update_on_text_changed = true
+suffix = "G"
+
+[node name="B" type="SpinBox" parent="Menu/Sky/Linhas/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_o6csk")
+max_value = 255.0
+rounded = true
+alignment = 2
+update_on_text_changed = true
+suffix = "B"
+
+[node name="Res" type="PanelContainer" parent="Menu"]
+offset_left = 36.0
+offset_top = 357.0
+offset_right = 322.0
+offset_bottom = 487.0
+size_flags_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="Linhas" type="VBoxContainer" parent="Menu/Res"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Menu/Res/Linhas"]
+modulate = Color(0.666569, 0.666569, 0.666569, 1)
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4xneg")
+theme_override_font_sizes/font_size = 37
+text = "RESOLUÇÃO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Menu/Res/Linhas"]
+custom_minimum_size = Vector2(255, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_tl5q0")
+theme_override_font_sizes/font_size = 19
+alignment = 1
+
+[node name="OptionButton2" type="OptionButton" parent="Menu/Res/Linhas"]
+custom_minimum_size = Vector2(255, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_tl5q0")
+theme_override_font_sizes/font_size = 19
+alignment = 1
+selected = 0
+item_count = 1
+popup/item_0/text = "Selecione Modo de Tela"
+popup/item_0/id = 0
+
+[node name="Background" parent="." instance=ExtResource("4_3a6gk")]
+z_index = -2
+metadata/_edit_lock_ = true
+
+[connection signal="value_changed" from="Menu/Stars/Linhas/HBoxContainer/R" to="." method="_on_starR_value_changed"]
+[connection signal="value_changed" from="Menu/Stars/Linhas/HBoxContainer/G" to="." method="_on_starG_value_changed"]
+[connection signal="value_changed" from="Menu/Stars/Linhas/HBoxContainer/B" to="." method="_on_starB_value_changed"]
+[connection signal="value_changed" from="Menu/Stars/Linhas/A" to="." method="_on_starA_value_changed"]
+[connection signal="value_changed" from="Menu/Sky/Linhas/HBoxContainer/R" to="." method="_on_skyR_value_changed"]
+[connection signal="value_changed" from="Menu/Sky/Linhas/HBoxContainer/G" to="." method="_on_skyG_value_changed"]
+[connection signal="value_changed" from="Menu/Sky/Linhas/HBoxContainer/B" to="." method="_on_skyB_value_changed"]
+[connection signal="item_selected" from="Menu/Res/Linhas/OptionButton" to="." method="_on_resolution_item_selected"]
+[connection signal="item_selected" from="Menu/Res/Linhas/OptionButton2" to="." method="_on_resolution_item_selected"]
