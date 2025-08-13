@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://byjns0rgvd7fh"]
+
+[ext_resource type="Texture2D" uid="uid://bfy3scykfle0p" path="res://Assets/Sprites/Tiro.png" id="1_wr052"]
+[ext_resource type="Script" uid="uid://cnkaeni1jtsgi" path="res://Scripts/shot_sprite.gd" id="2_po8pd"]
+[ext_resource type="PackedScene" uid="uid://df3akxpxcdavy" path="res://Recursos/Bullet/bullettrailparticle.res" id="3_v0468"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po8pd"]
+size = Vector2(2, 2)
+
+[node name="Tiro" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_wr052")
+script = ExtResource("2_po8pd")
+
+[node name="BulletTrail" parent="Sprite2D" instance=ExtResource("3_v0468")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_po8pd")

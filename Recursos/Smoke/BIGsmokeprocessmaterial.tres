@@ -1,0 +1,40 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=7 format=3 uid="uid://cc0gc2o8ykp27"]
+
+[ext_resource type="Gradient" uid="uid://bc10u2oy6gbj4" path="res://Recursos/Smoke/smokecolorgradient.tres" id="1_mk7cj"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qty4u"]
+gradient = ExtResource("1_mk7cj")
+
+[sub_resource type="Curve" id="Curve_pgbdj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2fpl1"]
+curve = SubResource("Curve_pgbdj")
+
+[sub_resource type="Curve" id="Curve_s7x1l"]
+_limits = [0.25, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.490741, 0.696629), 0.0, 0.0, 0, 0, Vector2(0.99537, 0.275281), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_tih6a"]
+curve = SubResource("Curve_s7x1l")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.2
+angle_min = -45.0
+angle_max = 45.0
+direction = Vector3(0, 1, 0)
+spread = 11.0
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -15.0
+linear_accel_max = -2.23517e-06
+linear_accel_curve = SubResource("CurveTexture_2fpl1")
+scale_min = 11.0
+scale_max = 11.0
+scale_curve = SubResource("CurveTexture_tih6a")
+color_ramp = SubResource("GradientTexture1D_qty4u")

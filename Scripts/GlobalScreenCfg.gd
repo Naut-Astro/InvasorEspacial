@@ -19,6 +19,7 @@ const windowmodes = {
 var currentres = resolutions["1280x720"]
 var currentwindowmode = windowmodes["Janela"]
 
+
 func alterScreen() -> void:
 	get_window().set_size(currentres)
 	DisplayServer.window_set_mode(currentwindowmode)

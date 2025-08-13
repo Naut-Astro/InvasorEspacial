@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://hcvgpaj51ld4"]
+
+[ext_resource type="Texture2D" uid="uid://bpoagj38ti6yf" path="res://Assets/Sprites/TiroCarregado.png" id="1_236a6"]
+[ext_resource type="Script" uid="uid://cnkaeni1jtsgi" path="res://Scripts/shot_sprite.gd" id="2_l7bbw"]
+[ext_resource type="PackedScene" uid="uid://df3akxpxcdavy" path="res://Recursos/Bullet/bullettrailparticle.res" id="3_o8iiv"]
+[ext_resource type="Material" uid="uid://cndmdkn73scev" path="res://Recursos/Bullet/chargedbulletprocessmaterial.tres" id="4_hy60v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7bbw"]
+size = Vector2(6, 6)
+
+[node name="TiroCarregado" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_236a6")
+script = ExtResource("2_l7bbw")
+
+[node name="BulletTrail" parent="Sprite2D" instance=ExtResource("3_o8iiv")]
+position = Vector2(0, -1)
+amount = 15
+lifetime = 0.25
+process_material = ExtResource("4_hy60v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_l7bbw")

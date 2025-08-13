@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0dhna0ku5v1n"]
+
+[ext_resource type="Script" uid="uid://8xj1mfuwgbpj" path="res://Scripts/playercontroller.gd" id="1_b7s0x"]
+[ext_resource type="PackedScene" uid="uid://cuvibs4p4eumo" path="res://Cenas/ship_sprite.tscn" id="2_ekh5j"]
+
+[node name="Invader" type="CharacterBody2D"]
+script = ExtResource("1_b7s0x")
+
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -0.5)
+polygon = PackedVector2Array(-1, -6.5, 1, -6.5, 2, -3.5, 3, -1.5, 4, -0.5, 5, 2.5, 7, 4.5, 7, 7.5, 3, 6.5, 2, 4.5, -2, 4.5, -3, 6.5, -7, 7.5, -7, 4.5, -5, 2.5, -4, -0.5, -3, -1.5, -2, -3.5)
+
+[node name="ShipSprite" parent="." instance=ExtResource("2_ekh5j")]
+scale = Vector2(5, 5)
