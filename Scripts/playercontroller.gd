@@ -1,11 +1,21 @@
 extends CharacterBody2D
 
+const SHOT = preload("res://Cenas/tiro.tscn")
+const BIGSHOT = preload("res://Cenas/tiro_carregado.tscn")
+
+@onready var sprite: Node2D = $ShipSprite
+@onready var gun: Marker2D = $Marker2D
+
 var speed := 245
 var dir
+var chargethreshold := 0.5
+var fullchargetime := 1.35
+
 
 func _process(_delta: float) -> void:
 	movement()
 	activateparticles()
+	shoot()
 	
 
 func movement() -> void:
@@ -24,6 +34,12 @@ func movement() -> void:
 	
 
 func activateparticles() -> void:
-	if dir.x > 0:
-		pass #ativar chama esquerda
-		
+	sprite.dynamicparticles(dir)
+	
+
+func shoot() -> void:
+	if Input.is_action_just_pressed("Shoot"):
+		var shot = SHOT.instantiate()
+		shot.global_position = gun.global_position
+		add_sibling(shot)
+	

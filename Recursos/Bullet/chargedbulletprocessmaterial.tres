@@ -14,4 +14,6 @@ emission_sphere_radius = 4.5
 gravity = Vector3(0, 0, 0)
 tangential_accel_min = 35.0
 tangential_accel_max = 55.0
+scale_min = 5.0
+scale_max = 5.0
 scale_curve = SubResource("CurveTexture_k1p7x")

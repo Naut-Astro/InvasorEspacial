@@ -187,7 +187,7 @@ popup/item_0/id = 0
 offset_left = 365.0
 offset_top = 45.0
 offset_right = 683.0
-offset_bottom = 654.0
+offset_bottom = 605.0
 size_flags_vertical = 0
 metadata/_edit_group_ = true
 
@@ -242,20 +242,6 @@ rounded = true
 alignment = 2
 update_on_text_changed = true
 suffix = "B"
-
-[node name="Label4" type="Label" parent="Menu/Ship/Linhas"]
-modulate = Color(0.666569, 0.666569, 0.666569, 1)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_tl5q0")
-theme_override_font_sizes/font_size = 19
-text = "Opacidade"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="A2" type="HSlider" parent="Menu/Ship/Linhas"]
-layout_mode = 2
-max_value = 255.0
-rounded = true
 
 [node name="Space" type="Label" parent="Menu/Ship/Linhas"]
 modulate = Color(0.666569, 0.666569, 0.666569, 1)
@@ -540,7 +526,6 @@ process_material = ExtResource("12_3cc11")
 [connection signal="value_changed" from="Menu/Ship/Linhas/HBoxContainer2/R" to="." method="_on_shipOutlineR_value_changed"]
 [connection signal="value_changed" from="Menu/Ship/Linhas/HBoxContainer2/G" to="." method="_on_shipOutlineG_value_changed"]
 [connection signal="value_changed" from="Menu/Ship/Linhas/HBoxContainer2/B" to="." method="_on_shipOutlineB_value_changed"]
-[connection signal="value_changed" from="Menu/Ship/Linhas/A2" to="." method="_on_shipOutlineA_value_changed"]
 [connection signal="value_changed" from="Menu/Ship/Linhas/HBoxContainer3/R" to="." method="_on_shipFillR_value_changed"]
 [connection signal="value_changed" from="Menu/Ship/Linhas/HBoxContainer3/G" to="." method="_on_shipFillG_value_changed"]
 [connection signal="value_changed" from="Menu/Ship/Linhas/HBoxContainer3/B" to="." method="_on_shipFillB_value_changed"]

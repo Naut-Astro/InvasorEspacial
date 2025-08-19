@@ -12,7 +12,6 @@ extends Node2D
 @onready var shipOutlineR: SpinBox = $Menu/Ship/Linhas/HBoxContainer2/R
 @onready var shipOutlineG: SpinBox = $Menu/Ship/Linhas/HBoxContainer2/G
 @onready var shipOutlineB: SpinBox = $Menu/Ship/Linhas/HBoxContainer2/B
-@onready var shipOutlineA: HSlider = $Menu/Ship/Linhas/A2
 
 @onready var shipFillR: SpinBox = $Menu/Ship/Linhas/HBoxContainer3/R
 @onready var shipFillG: SpinBox = $Menu/Ship/Linhas/HBoxContainer3/G
@@ -31,48 +30,48 @@ extends Node2D
 @onready var smoke2G: SpinBox = $Menu/Ship/Linhas/HBoxContainer6/G
 @onready var smoke2B: SpinBox = $Menu/Ship/Linhas/HBoxContainer6/B
 
-
 @onready var resOptBut: OptionButton = $Menu/Res/Linhas/OptionButton
 @onready var screenOptBut: OptionButton = $Menu/Res/Linhas/OptionButton2
 
 
 func _ready() -> void:
+	SaveLoadManager._load()
 	initColorvalues()
 	addResolutions()
 	addScreenmodes()
 	updateResolutionvalue()
+	
 
 func initColorvalues() -> void: #Deixar os botões com valor inicial correto
-	starR.value = int(255 * GlobalColors.starcolor[0])
-	starG.value = int(255 * GlobalColors.starcolor[1])
-	starB.value = int(255 * GlobalColors.starcolor[2])
-	starA.value = int(255 * GlobalColors.starcolor[3])
+	starR.value = int(255 * SaveLoadManager.savedata.starcolor[0])
+	starG.value = int(255 * SaveLoadManager.savedata.starcolor[1])
+	starB.value = int(255 * SaveLoadManager.savedata.starcolor[2])
+	starA.value = int(255 * SaveLoadManager.savedata.starcolor[3])
 	
-	skyR.value = int(255 * GlobalColors.bgcolor[0])
-	skyG.value = int(255 * GlobalColors.bgcolor[1])
-	skyB.value = int(255 * GlobalColors.bgcolor[2])
+	skyR.value = int(255 * SaveLoadManager.savedata.bgcolor[0])
+	skyG.value = int(255 * SaveLoadManager.savedata.bgcolor[1])
+	skyB.value = int(255 * SaveLoadManager.savedata.bgcolor[2])
 	
-	shipOutlineR.value = int(255 * GlobalColors.shipoutlinecolor[0])
-	shipOutlineG.value = int(255 * GlobalColors.shipoutlinecolor[1])
-	shipOutlineB.value = int(255 * GlobalColors.shipoutlinecolor[2])
-	shipOutlineA.value = int(255 * GlobalColors.shipoutlinecolor[3])
+	shipOutlineR.value = int(255 * SaveLoadManager.savedata.shipoutlinecolor[0])
+	shipOutlineG.value = int(255 * SaveLoadManager.savedata.shipoutlinecolor[1])
+	shipOutlineB.value = int(255 * SaveLoadManager.savedata.shipoutlinecolor[2])
 	
-	shipFillR.value = int(255 * GlobalColors.shipfillcolor[0])
-	shipFillG.value = int(255 * GlobalColors.shipfillcolor[1])
-	shipFillB.value = int(255 * GlobalColors.shipfillcolor[2])
-	shipFillA.value = int(255 * GlobalColors.shipfillcolor[3])
+	shipFillR.value = int(255 * SaveLoadManager.savedata.shipfillcolor[0])
+	shipFillG.value = int(255 * SaveLoadManager.savedata.shipfillcolor[1])
+	shipFillB.value = int(255 * SaveLoadManager.savedata.shipfillcolor[2])
+	shipFillA.value = int(255 * SaveLoadManager.savedata.shipfillcolor[3])
 	
-	shipShotR.value = int(255 * GlobalColors.shipshotcolor[0])
-	shipShotG.value = int(255 * GlobalColors.shipshotcolor[1])
-	shipShotB.value = int(255 * GlobalColors.shipshotcolor[2])
+	shipShotR.value = int(255 * SaveLoadManager.savedata.shipshotcolor[0])
+	shipShotG.value = int(255 * SaveLoadManager.savedata.shipshotcolor[1])
+	shipShotB.value = int(255 * SaveLoadManager.savedata.shipshotcolor[2])
 	
-	smoke1R.value = int(255 * GlobalColors.smokeinitialcolor[0])
-	smoke1G.value = int(255 * GlobalColors.smokeinitialcolor[1])
-	smoke1B.value = int(255 * GlobalColors.smokeinitialcolor[2])
+	smoke1R.value = int(255 * SaveLoadManager.savedata.smokeinitialcolor[0])
+	smoke1G.value = int(255 * SaveLoadManager.savedata.smokeinitialcolor[1])
+	smoke1B.value = int(255 * SaveLoadManager.savedata.smokeinitialcolor[2])
 	
-	smoke2R.value = int(255 * GlobalColors.smokeendcolor[0])
-	smoke2G.value = int(255 * GlobalColors.smokeendcolor[1])
-	smoke2B.value = int(255 * GlobalColors.smokeendcolor[2])
+	smoke2R.value = int(255 * SaveLoadManager.savedata.smokeendcolor[0])
+	smoke2G.value = int(255 * SaveLoadManager.savedata.smokeendcolor[1])
+	smoke2B.value = int(255 * SaveLoadManager.savedata.smokeendcolor[2])
 	
 
 func addResolutions() -> void: #Adicionar resoluções no menu dropdown
@@ -137,9 +136,6 @@ func _on_shipOutlineG_value_changed(value: float) -> void:
 func _on_shipOutlineB_value_changed(value: float) -> void:
 	GlobalColors.shipoutlinecolor[2] = shipOutlineB.value/255
 	GlobalColors.shipoutlinechanged = true
-func _on_shipOutlineA_value_changed(value: float) -> void:
-	GlobalColors.shipoutlinecolor[3] = shipOutlineA.value/255
-	GlobalColors.shipoutlinechanged = true
 
 #Alterar cor do preenchimento da Nave
 func _on_shipFillR_value_changed(value: float) -> void:
@@ -190,10 +186,3 @@ func _on_smoke2G_value_changed(value: float) -> void:
 func _on_smoke2B_value_changed(value: float) -> void:
 	GlobalColors.smokeendcolor[2] = smoke2B.value/255
 	GlobalColors.smokecolorchanged = true
-
-
-func _process(_delta: float) -> void:
-	if GlobalColors.updateoutlinealpha == true:
-		shipOutlineA.value = 255 * GlobalColors.shipoutlinecolor[3]
-		GlobalColors.updateoutlinealpha = false
-	

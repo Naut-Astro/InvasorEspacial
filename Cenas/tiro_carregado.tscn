@@ -9,6 +9,8 @@
 size = Vector2(6, 6)
 
 [node name="TiroCarregado" type="Area2D"]
+z_index = 1
+scale = Vector2(5, 5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -17,7 +19,7 @@ script = ExtResource("2_l7bbw")
 
 [node name="BulletTrail" parent="Sprite2D" instance=ExtResource("3_o8iiv")]
 position = Vector2(0, -1)
-amount = 15
+amount = 23
 lifetime = 0.25
 process_material = ExtResource("4_hy60v")
 

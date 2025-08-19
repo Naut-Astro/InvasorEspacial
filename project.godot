@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 GlobalColors="*res://Scripts/GlobalColors.gd"
 GlobalScreenCfg="*res://Scripts/GlobalScreenCfg.gd"
+SaveLoadManager="*res://Scripts/SaveLoadManager.gd"
 
 [display]
 

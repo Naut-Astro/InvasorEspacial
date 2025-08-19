@@ -7,11 +7,13 @@ extends Sprite2D
 
 
 func _ready() -> void:
-	self.self_modulate = GlobalColors.shipshotcolor
-	bulletsparkle.color = GlobalColors.shipshotcolor
-	bigbulletsparkle.color = GlobalColors.shipshotcolor
-	chargedbulletsparkle.color = GlobalColors.shipshotcolor
-	bigchargedbulletsparkle.color = GlobalColors.shipshotcolor
+	SaveLoadManager._load()
+	self.self_modulate = SaveLoadManager.savedata.shipshotcolor
+	bulletsparkle.color = SaveLoadManager.savedata.shipshotcolor
+	bigbulletsparkle.color = SaveLoadManager.savedata.shipshotcolor
+	chargedbulletsparkle.color = SaveLoadManager.savedata.shipshotcolor
+	bigchargedbulletsparkle.color = SaveLoadManager.savedata.shipshotcolor
+	
 
 func _process(_delta: float) -> void:
 	handlecolorchange()
@@ -28,4 +30,6 @@ func handlecolorchange():
 		bigbulletsparkle.color = GlobalColors.shipshotcolor
 		chargedbulletsparkle.color = GlobalColors.shipshotcolor
 		bigchargedbulletsparkle.color = GlobalColors.shipshotcolor
+		SaveLoadManager.savedata.shipshotcolor = self.self_modulate
+		SaveLoadManager._save()
 	

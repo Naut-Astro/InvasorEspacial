@@ -17,7 +17,6 @@ var bgchanged := false
 
 var shipoutlinecolor := SHIPOUTLINEDEFAULTCOLOR
 var shipoutlinechanged := false
-var updateoutlinealpha := false
 var shipfillcolor := SHIPFILLDEFAULTCOLOR
 var shipfillchanged := false
 
@@ -28,3 +27,14 @@ var shipchargedshotchanged := false
 var smokeinitialcolor := SMOKEDEFAULTINITIALCOLOR
 var smokeendcolor := SMOKEDEFAULTENDCOLOR
 var smokecolorchanged := false
+
+func _ready():
+	SaveLoadManager._load()
+	starcolor = SaveLoadManager.savedata.starcolor
+	bgcolor = SaveLoadManager.savedata.bgcolor
+	shipoutlinecolor = SaveLoadManager.savedata.shipoutlinecolor
+	shipfillcolor = SaveLoadManager.savedata.shipfillcolor
+	shipshotcolor = SaveLoadManager.savedata.shipshotcolor
+	smokeinitialcolor = SaveLoadManager.savedata.smokeinitialcolor
+	smokeendcolor = SaveLoadManager.savedata.smokeendcolor
+	

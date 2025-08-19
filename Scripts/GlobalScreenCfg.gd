@@ -19,11 +19,20 @@ const windowmodes = {
 var currentres = resolutions["1280x720"]
 var currentwindowmode = windowmodes["Janela"]
 
+func _ready() -> void:
+	SaveLoadManager._load()
+	currentres = SaveLoadManager.savedata.currentres
+	currentwindowmode = SaveLoadManager.savedata.currentwindowmode
+	alterScreen()
+	
 
 func alterScreen() -> void:
 	get_window().set_size(currentres)
 	DisplayServer.window_set_mode(currentwindowmode)
 	centerwindow()
+	SaveLoadManager.savedata.currentres = currentres
+	SaveLoadManager.savedata.currentwindowmode = currentwindowmode
+	SaveLoadManager._save()
 
 func centerwindow() -> void:
 	var screencenter = DisplayServer.screen_get_position() + DisplayServer.screen_get_size()/2
