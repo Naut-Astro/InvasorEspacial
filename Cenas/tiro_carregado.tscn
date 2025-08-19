@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://hcvgpaj51ld4"]
+[gd_scene load_steps=7 format=3 uid="uid://hcvgpaj51ld4"]
 
 [ext_resource type="Texture2D" uid="uid://bpoagj38ti6yf" path="res://Assets/Sprites/TiroCarregado.png" id="1_236a6"]
+[ext_resource type="Script" uid="uid://dbe6cb3eblyct" path="res://Scripts/shot_behaviour.gd" id="1_hy60v"]
 [ext_resource type="Script" uid="uid://cnkaeni1jtsgi" path="res://Scripts/shot_sprite.gd" id="2_l7bbw"]
 [ext_resource type="PackedScene" uid="uid://df3akxpxcdavy" path="res://Recursos/Bullet/bullettrailparticle.res" id="3_o8iiv"]
 [ext_resource type="Material" uid="uid://cndmdkn73scev" path="res://Recursos/Bullet/chargedbulletprocessmaterial.tres" id="4_hy60v"]
@@ -11,6 +12,7 @@ size = Vector2(6, 6)
 [node name="TiroCarregado" type="Area2D"]
 z_index = 1
 scale = Vector2(5, 5)
+script = ExtResource("1_hy60v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

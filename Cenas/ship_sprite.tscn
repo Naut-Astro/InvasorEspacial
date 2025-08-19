@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuvibs4p4eumo"]
+[gd_scene load_steps=7 format=3 uid="uid://cuvibs4p4eumo"]
 
 [ext_resource type="Texture2D" uid="uid://db8tgn24k4uv4" path="res://Assets/Sprites/ShipOutline.png" id="1_6g1qh"]
 [ext_resource type="Script" uid="uid://cbi3b48hbndad" path="res://Scripts/ship_sprite.gd" id="1_af28i"]
 [ext_resource type="Texture2D" uid="uid://15hyw354fusg" path="res://Assets/Sprites/ShipInside.png" id="2_af28i"]
 [ext_resource type="PackedScene" uid="uid://cgqjw2k1gvvoy" path="res://Recursos/Smoke/smokelineparticle.res" id="2_cmmev"]
+[ext_resource type="Material" uid="uid://c1ejb1n1gayqd" path="res://Recursos/Charge/chargingprocessmaterial.tres" id="3_sc42d"]
+[ext_resource type="Material" uid="uid://c2skaoxskig5f" path="res://Recursos/Charge/chargedprocessmaterial.tres" id="4_7ey5o"]
 
 [node name="ShipSprite" type="Node2D"]
 script = ExtResource("1_af28i")
@@ -11,6 +13,7 @@ script = ExtResource("1_af28i")
 [node name="ParticlesParent" type="Node2D" parent="."]
 
 [node name="leftSmoke" parent="ParticlesParent" instance=ExtResource("2_cmmev")]
+visible = false
 position = Vector2(-6, 8.5)
 amount = 19
 lifetime = 0.13
@@ -18,6 +21,7 @@ speed_scale = 0.95
 explosiveness = 0.05
 
 [node name="rightSmoke" parent="ParticlesParent" instance=ExtResource("2_cmmev")]
+visible = false
 position = Vector2(6, 8.5)
 amount = 19
 lifetime = 0.13
@@ -25,6 +29,7 @@ speed_scale = 0.95
 explosiveness = 0.05
 
 [node name="centerSmoke" type="Node2D" parent="ParticlesParent"]
+visible = false
 position = Vector2(0, 5.5)
 
 [node name="1" parent="ParticlesParent/centerSmoke" instance=ExtResource("2_cmmev")]
@@ -40,6 +45,24 @@ amount = 41
 lifetime = 0.35
 speed_scale = 0.95
 explosiveness = 0.05
+
+[node name="chargeEffects" type="Node2D" parent="ParticlesParent"]
+
+[node name="chargingSparkle" type="GPUParticles2D" parent="ParticlesParent/chargeEffects"]
+z_index = 2
+emitting = false
+amount = 19
+lifetime = 0.43
+process_material = ExtResource("3_sc42d")
+
+[node name="chargedSparkle" type="GPUParticles2D" parent="ParticlesParent/chargeEffects"]
+z_index = 1
+emitting = false
+amount = 39
+lifetime = 0.35
+one_shot = true
+explosiveness = 0.9
+process_material = ExtResource("4_7ey5o")
 
 [node name="Outline" type="Sprite2D" parent="."]
 texture_filter = 1

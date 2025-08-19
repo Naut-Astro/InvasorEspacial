@@ -4,6 +4,9 @@ const SMALLSMOKESPEED: float = 0.95
 const BIGSMOKESPEED: float = 0.95
 const BIGSMOKELIFETIME: float = 0.35
 
+@onready var chargingvfx = preload("res://Recursos/Charge/chargingprocessmaterial.tres")
+@onready var chargedvfx = preload("res://Recursos/Charge/chargedprocessmaterial.tres")
+
 @onready var outline: Sprite2D = $Outline
 @onready var fill: Sprite2D = $Fill
 @onready var sprite: Node2D = $"."
@@ -12,6 +15,10 @@ const BIGSMOKELIFETIME: float = 0.35
 @onready var rsmoke: GPUParticles2D = $ParticlesParent/rightSmoke
 @onready var csmoke1: GPUParticles2D = $"ParticlesParent/centerSmoke/1"
 @onready var csmoke2: GPUParticles2D = $"ParticlesParent/centerSmoke/2"
+
+@onready var chargingsparkle: GPUParticles2D = $ParticlesParent/chargeEffects/chargingSparkle
+@onready var chargedsparkle: GPUParticles2D = $ParticlesParent/chargeEffects/chargedSparkle
+
 
 
 func _ready() -> void:
@@ -22,6 +29,8 @@ func _ready() -> void:
 func updateColor():
 	fill.self_modulate = SaveLoadManager.savedata.shipfillcolor
 	outline.self_modulate = SaveLoadManager.savedata.shipoutlinecolor
+	chargingvfx.color = SaveLoadManager.savedata.shipshotcolor
+	chargedvfx.color = SaveLoadManager.savedata.shipshotcolor
 	
 
 func _process(_delta: float) -> void:
@@ -41,7 +50,7 @@ func handlecolorchange() -> void:
 		SaveLoadManager._save()
 	
 
-func dynamicparticles(dir: Vector2) -> void:
+func smokeparticles(dir: Vector2) -> void:
 	#Movimento horizontal ou dedicado pra cima
 	if dir.x < 0:
 		rsmoke.emitting = true
